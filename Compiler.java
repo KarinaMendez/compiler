@@ -19,7 +19,7 @@ public class Compiler{
 			for(int i = 0;i<=args.length-2;i++){
 				switch(args[i]){
 					case "-o":
-						if(args[i+1].contains("-")){
+						if(args[i+1].contains("-")&&args[i+1].contains(".")){
 							System.out.print("error falta el argumento que complementa a -o");
 						}
 						if(!options.contains(args[i])){
@@ -29,7 +29,7 @@ public class Compiler{
 						}
 						break;
 					case "-target":
-						if(args[i+1].contains("-")){
+						if(args[i+1].contains("-")&&args[i+1].contains(".")){
 							System.out.print("error falta el argumento que complementa a -target");
 						}
 						if(!options.contains(args[i])){
@@ -39,7 +39,7 @@ public class Compiler{
 						}
 						break;
 					case "-opt":
-						if(args[i+1].contains("-")){
+						if(args[i+1].contains("-")&&args[i+1].contains(".")){
 							System.out.print("error falta el argumento que complementa a -opt");
 						}
 						if(!options.contains(args[i])){
@@ -49,7 +49,7 @@ public class Compiler{
 						}
 						break;
 					case "-debug":
-						if(args[i+1].contains("-")){
+						if(args[i+1].contains("-")&&args[i+1].contains(".")){
 							System.out.print("error falta el argumento que complementa a -debug");
 						}
 						if(!options.contains(args[i])){

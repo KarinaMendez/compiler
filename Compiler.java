@@ -21,41 +21,41 @@ public class Compiler{
 					case "-o":
 						if(args[i+1].contains("-")&&args[i+1].contains(".")){
 							System.out.print("error falta el argumento que complementa a -o");
+						}else{
+							i++;
 						}
 						if(!options.contains(args[i])){
 							options.add(args[i]);
-						}else if(!args[i+1].contains("-")){
-							i++;
 						}
 						break;
 					case "-target":
 						if(args[i+1].contains("-")&&args[i+1].contains(".")){
 							System.out.print("error falta el argumento que complementa a -target");
+						}else{
+							i++;
 						}
 						if(!options.contains(args[i])){
 							options.add(args[i]);
-						}else if(!args[i+1].contains("-")){
-							i++;
 						}
 						break;
 					case "-opt":
 						if(args[i+1].contains("-")&&args[i+1].contains(".")){
 							System.out.print("error falta el argumento que complementa a -opt");
+						}else{
+							i++;
 						}
 						if(!options.contains(args[i])){
 							options.add(args[i]);
-						}else if(!args[i+1].contains("-")){
-							i++;
 						}
 						break;
 					case "-debug":
 						if(args[i+1].contains("-")&&args[i+1].contains(".")){
 							System.out.print("error falta el argumento que complementa a -debug");
+						}else{
+							i++;
 						}
 						if(!options.contains(args[i])){
 							options.add(args[i]);
-						}else if(!args[i+1].contains("-")){
-							i++;
 						}
 						break;
 					default:

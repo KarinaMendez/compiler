@@ -1,17 +1,31 @@
-package compiler.lib;
-
+package lib;
 /*ErrorHandler.java*/
  
 
-public class ErrorHandler(){
+public class ErrorHandler{
 
 	public ErrorHandler(String e){
-		Switch(e){
+		switch(e){
 			case "no arguments":
-				System.out.println("no se recibio ningun argumento");
+				System.err.println("no se recibio ningun argumento");
+				break;
+			case "not existing file":
+				System.err.println("not existing file");
+				break;
+			case "no argument for -o":
+				System.err.println("error falta el argumento que complementa a -o");
+				break;
+			case "no argument for -target":
+				System.err.println("error falta el argumento que complementa a -target");
+				break;
+			case "no argument for -opt":
+				System.err.println("error falta el argumento que complementa a -opt");
+				break;
+			case "not existing file":
+				System.err.println("not existing file");
 				break;
 			default:
-				System.out.println("Error");
+				System.err.println("Error");
 				break;
 		}
 	}

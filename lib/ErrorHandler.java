@@ -3,10 +3,10 @@ package compiler.lib;
 /*ErrorHandler.java*/
  
 
-public class ErrorHandler(){
+public class ErrorHandler{
 
 	public ErrorHandler(String e){
-		Switch(e){
+		switch(e){
 			case "no arguments":
 				System.out.println("Didn't receive any arguments");
 				break;

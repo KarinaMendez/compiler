@@ -1,5 +1,12 @@
 import java.util.ArrayList;
 import compiler.lib.ErrorHandler;
+import compiler.scanner.Scanner;
+import compiler.parse.CC4Parser;
+import compiler.ast.Ast;
+import compiler.semantic.Semantic;
+import compiler.irt.Irt;
+import compiler.codegen.Codegen;
+
 
 public class Compiler{
 	public static void main(String[] args) {
@@ -75,6 +82,20 @@ public class Compiler{
 						case "-target":
 							String x = args[j+1];
 							System.out.println("se procedera hasta: " + x);
+							switch(x){
+								case "scan":
+								break;
+								case "parse":
+								break;
+								case "ast":
+								break;
+								case "semantic":
+								break;
+								case "irt":
+								break;
+								case "codegen":
+								break;
+							}
 							j++;
 							break;
 						case "-opt":

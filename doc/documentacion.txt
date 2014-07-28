@@ -1,0 +1,16 @@
+Documentacion
+
+Se decidió que si un argumento va repetido se tomara la primera aparición del mismo.
+
+	Por que: en la implementación lo que se hace es ir sacando los argumentos del 		array que provee el main e ir verificando mientras se hace, entre esas 			verificaciones se ve si hay ocurrencias en la nueva lista de argumentos ya 		validados.
+
+Ocurre un problema al validar el nuevo nombre que se dara usando la etiqueta -o; por la forma en la que se hace la validación no se puede comprobar que el siguiente argumento de la etiqueta no contenga puntuaciones que hacen referencia a una extensión por que hacerlo seria valido para esta etiqueta, por lo que si se omite y esta es la ultima etiqueta antes del file name tomara el file name como el nuevo nombre.
+
+Cuando se verifica si se recibe mas de una opción, no funciona correctamente la separación de los argumentos recibidos, si no vienen separadas por espacios, dará error por lo que queda pendiente de verificar.
+
+Cuando intentábamos hacer make en la carpeta compiler, daba el error: “Makefile:10: *** missing separator.  Stop.” El cual no supimos correctamente como manejar, entonces lo dejamos pendiente para resolver esta duda en clase.
+
+
+
+
+

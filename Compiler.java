@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+<<<<<<< HEAD
 import compiler.lib.ErrorHandler;
 /*import compiler.scanner.Scanner;
 import compiler.parse.CC4Parser;
@@ -7,8 +8,12 @@ import compiler.semantic.Semantic;
 import compiler.irt.Irt;
 import compiler.codegen.Codegen;*/
 
+=======
+import lib.ErrorHandler;
+>>>>>>> master
 public class Compiler{
 	public static void main(String[] args) {
+
 		if (args.length>0){
 			if (args.length==1){
 				if(args[0].equals("-h")){
@@ -22,14 +27,26 @@ public class Compiler{
 				if(args[0].contains(".")){
 					System.out.println("hacer todo");	
 				}else{
+<<<<<<< HEAD
+=======
+					//error 
+>>>>>>> master
 					ErrorHandler e = new ErrorHandler("not existing file");
 				}
 			}
 			String filename = args[args.length-1];
+<<<<<<< HEAD
+=======
+			if(!filename.contains(".")){
+				//error
+				ErrorHandler e = new ErrorHandler("not existing file");
+			}
+>>>>>>> master
 			ArrayList<String> options = new ArrayList<String>();
 			for(int i = 0;i<=args.length-2;i++){
 				switch(args[i]){
 					case "-o":
+<<<<<<< HEAD
 <<<<<<< HEAD
 						if(!options.contains(args[i])){
 							options.add(args[i]);
@@ -83,6 +100,10 @@ public class Compiler{
 =======
 						if(args[i+1].contains("-")&&args[i+1].contains(".")){
 							System.out.print("error falta el argumento que complementa a -o");
+=======
+						if(args[i+1].contains("-")){
+							ErrorHandler e = new ErrorHandler("no argument for -o");
+>>>>>>> master
 						}else{
 							i++;
 						}
@@ -92,7 +113,7 @@ public class Compiler{
 						break;
 					case "-target":
 						if(args[i+1].contains("-")&&args[i+1].contains(".")){
-							System.out.print("error falta el argumento que complementa a -target");
+							ErrorHandler e = new ErrorHandler("no argument for -target");
 						}else{
 							i++;
 						}
@@ -102,7 +123,7 @@ public class Compiler{
 						break;
 					case "-opt":
 						if(args[i+1].contains("-")&&args[i+1].contains(".")){
-							System.out.print("error falta el argumento que complementa a -opt");
+							ErrorHandler e = new ErrorHandler("no argument for -opt");
 						}else{
 							i++;
 						}

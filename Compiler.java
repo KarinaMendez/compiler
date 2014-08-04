@@ -85,40 +85,19 @@ public class Compiler{
 						break;
 				}				
 			}
-			if(options.size()>2){
-				System.out.println("si entra aqui");
+			for(int j = 0; options.length()>j;j++){
 				switch(options.get(options.size()-2)){
 					case "-o":
-						System.out.println("el out name sera: " + options.get(options.size()-1));
+						System.out.println("el out name sera: " + options.get(j));
 						break;
 					case "-target":
-						System.out.println("se procedera hasta: " + options.get(options.size()-1));
+						System.out.println("se procedera hasta: " + options.get(j));
 						break;
 					case "-opt":
-						System.out.println("solo se optimizara: "+ options.get(options.size()-1));
+						System.out.println("solo se optimizara: "+ options.get(j));
 						break;
 					case "-debug":
-						System.out.println("se debugueara: "+ options.get(options.size()-1));
-						break;
-					case "-h":
-						System.out.println("Muestra esta ayuda al usuario.");
-						break;
-					default:
-						break;
-				}
-			}else{
-				switch(options.get(0)){
-					case "-o":
-						System.out.println("el out name sera: " + options.get(1));
-						break;
-					case "-target":
-						System.out.println("se procedera hasta: " + options.get(1));
-						break;
-					case "-opt":
-						System.out.println("solo se optimizara: "+ options.get(1));
-						break;
-					case "-debug":
-						System.out.println("se debugueara: "+ options.get(1));
+						System.out.println("se debugueara: "+ options.get(j));
 						break;
 					case "-h":
 						System.out.println("Muestra esta ayuda al usuario.");

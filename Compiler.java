@@ -85,19 +85,43 @@ public class Compiler{
 						break;
 				}				
 			}
-			for(int j = 0;j<options.length();j++){
+			for(int j = 0; options.length()>j;j++){
 				switch(options.get(options.size()-2)){
 					case "-o":
-						System.out.println("el out name sera: " + options.get(j);
+						System.out.println("el out name sera: " + options.get(j));
+						FileOutputStream out = new FileOutputStream(options.get(j));
 						break;
 					case "-target":
-						System.out.println("se procedera hasta: " + options.get(j);
+						System.out.println("se procedera hasta: " + options.get(j));
+						switch(options.get(j)){
+									case "scan":
+										
+										break;
+									case "parse":
+										
+										break;
+									case "ast":
+										
+										break; 
+									case "semantic";
+										
+										break;
+									case "irt":
+										
+										break;
+									case "codegen":
+										
+										break;
+									default:
+									ErrorHandler e = new ErrorHandler("missing -target complement");
+									break
+								}
 						break;
 					case "-opt":
-						System.out.println("solo se optimizara: "+ options.get(j);
+						System.out.println("solo se optimizara: "+ options.get(j));
 						break;
 					case "-debug":
-						System.out.println("se debugueara: "+ options.get(j);
+						System.out.println("se debugueara: "+ options.get(j));
 						break;
 					case "-h":
 						System.out.println("Muestra esta ayuda al usuario.");

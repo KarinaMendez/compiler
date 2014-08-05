@@ -10,6 +10,8 @@ import compiler.codegen.Codegen;*/
 public class Compiler{
 	public static void main(String[] args) {
 		if (args.length>0){
+			String filename = args[args.length-1];
+			ArrayList<String> options = new ArrayList<String>();
 			if (args.length==1){
 				if(args[0].equals("-h")){
 					System.out.println("Esta es una ayuda para el usuario, opciones disponibles: ");
@@ -20,13 +22,13 @@ public class Compiler{
 					System.exit(0);
 				}
 				if(args[0].contains(".")){
-					System.out.println("hacer todo");	
+					System.out.println("hacer todo");
+					Codegen c = new Codegen(filename);	
+					FileOutputStream out = new FileOutputStream("2"+filename);
 				}else{
 					ErrorHandler e = new ErrorHandler("not existing file");
 				}
 			}
-			String filename = args[args.length-1];
-			ArrayList<String> options = new ArrayList<String>();
 			for(int i = 0;i<=args.length-2;i++){
 				switch(args[i]){
 					case "-o":
@@ -52,7 +54,35 @@ public class Compiler{
 								i++;
 							}
 						}else{
-							i++;
+							switch(args[i+1]){
+									case "scan":
+										options.add(args[i+1]);
+										i++;
+										break;
+									case "parse":
+										options.add(args[i+1]);
+										i++;
+										break;
+									case "ast":
+										options.add(args[i+1]);
+										i++;
+										break; 
+									case "semantic";
+										options.add(args[i+1]);
+										i++;
+										break;
+									case "irt":
+										options.add(args[i+1]);
+										i++;
+										break;
+									case "codegen":
+										options.add(args[i+1]);
+										i++;
+										break;
+									default:
+									ErrorHandler e = new ErrorHandler("missing -target complement");
+									break
+								}
 						}
 						break;
 					case "-opt":

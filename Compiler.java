@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.io.*;
 import compiler.lib.ErrorHandler;
-/*import compiler.scanner.Scanner;
+import compiler.scanner.Scanner;
 import compiler.parse.CC4Parser;
 import compiler.ast.Ast;
 import compiler.semantic.Semantic;
-import compiler.irt.Irt;*/
+import compiler.irt.Irt;
 import compiler.codegen.Codegen;
 
 public class Compiler{
@@ -23,8 +24,16 @@ public class Compiler{
 				}
 				if(args[0].contains(".")){
 					System.out.println("hacer todo");
-					Codegen c = new Codegen(filename);	
+					try{
+						InputStream in = new FileInputStream(filename);
+					} catch (FileNotFoundException e) {
+			    		ErrorHandler e = new ErrorHandler("not existing file");
+					} catch (IOException e) {
+					    ErrorHandler e = new ErrorHandler("not existing file");
+					}
 					FileOutputStream out = new FileOutputStream("2"+filename);
+					Codegen c = new Codegen(filename, out);
+
 				}else{
 					ErrorHandler e = new ErrorHandler("not existing file");
 				}

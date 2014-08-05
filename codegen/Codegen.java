@@ -1,14 +1,12 @@
 /*Codegen.java*/
-import 
+package compiler.codegen;
+
+import java.io.*;
+import compiler.irt.Irt;
 import compiler.lib.ErrorHandler;
 public class Codegen{
-	public Codegen(String s){
-		try{
-			InputStream in = new FileInputStream(s);
-		} catch (FileNotFoundException e) {
-    		ErrorHandler e = new ErrorHandler("not existing file");
-		} catch (IOException e) {
-		    ErrorHandler e = new ErrorHandler("not existing file");
-		}
+	public Codegen(FileOutputStream out){
+		Irt i = new Irt(out);
+		out.write("stage: generating code");
 	}
 }

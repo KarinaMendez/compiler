@@ -4,8 +4,8 @@ import compiler.lib.ErrorHandler;
 import compiler.parse.CC4Parser;
 import compiler.ast.Ast;
 import compiler.semantic.Semantic;
-import compiler.irt.Irt;
-import compiler.codegen.Codegen;*/
+import compiler.irt.Irt;*/
+import compiler.codegen.Codegen;
 
 public class Compiler{
 	public static void main(String[] args) {

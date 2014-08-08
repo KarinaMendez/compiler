@@ -1,10 +1,11 @@
 /*Ast.java*/
-package compiler.Ast;
+package compiler.ast;
+import java.io.*;
 import compiler.lib.ErrorHandler;
 import compiler.parse.CC4Parser;
 public class Ast{
-	public Ast(FileOutputStream out){
+	public Ast(PrintWriter out){
 		CC4Parser c = new CC4Parser(out);
-		out.write("stage: CC4Parser");
+		out.println("stage: CC4Parser");
 	}
 }

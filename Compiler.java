@@ -9,7 +9,7 @@ import compiler.irt.Irt;
 import compiler.codegen.Codegen;
 
 public class Compiler{
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		if (args.length>0){
 			String filename = args[args.length-1];
 			ArrayList<String> options = new ArrayList<String>();
@@ -26,13 +26,11 @@ public class Compiler{
 					System.out.println("hacer todo");
 					try{
 						InputStream in = new FileInputStream(filename);
-					} catch (FileNotFoundException e) {
-			    		ErrorHandler e = new ErrorHandler("not existing file");
-					} catch (IOException e) {
-					    ErrorHandler e = new ErrorHandler("not existing file");
+					} catch (FileNotFoundException p) {
+			    		ErrorHandler error = new ErrorHandler("not existing file");
 					}
-					FileOutputStream out = new FileOutputStream("2"+filename);
-					Codegen c = new Codegen(filename, out);
+					PrintWriter out = new PrintWriter("2"+filename);
+					Codegen c = new Codegen(out);
 
 				}else{
 					ErrorHandler e = new ErrorHandler("not existing file");
@@ -76,7 +74,7 @@ public class Compiler{
 										options.add(args[i+1]);
 										i++;
 										break; 
-									case "semantic";
+									case "semantic":
 										options.add(args[i+1]);
 										i++;
 										break;
@@ -90,7 +88,7 @@ public class Compiler{
 										break;
 									default:
 									ErrorHandler e = new ErrorHandler("missing -target complement");
-									break
+									break;
 								}
 						}
 						break;
@@ -124,7 +122,7 @@ public class Compiler{
 						break;
 				}				
 			}
-			for(int j = 0; options.length()>j;j++){
+			for(int j = 0; options.size()>j;j++){
 				switch(options.get(options.size()-2)){
 					case "-o":
 						System.out.println("el out name sera: " + options.get(j));
@@ -142,7 +140,7 @@ public class Compiler{
 									case "ast":
 										
 										break; 
-									case "semantic";
+									case "semantic":
 										
 										break;
 									case "irt":
@@ -153,7 +151,7 @@ public class Compiler{
 										break;
 									default:
 									ErrorHandler e = new ErrorHandler("missing -target complement");
-									break
+									break;
 								}
 						break;
 					case "-opt":

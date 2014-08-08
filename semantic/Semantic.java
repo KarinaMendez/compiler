@@ -1,10 +1,11 @@
 /*Semantic.java*/
 package compiler.semantic;
+import java.io.*;
 import compiler.lib.ErrorHandler;
 import compiler.ast.Ast;
 public class Semantic{
-	public Semantic(FileOutputStream out){
+	public Semantic(PrintWriter out){
 		Ast a = new Ast(out);
-		out.write("stage: Ast");	
+		out.println("stage: Ast");	
 	}
 }

@@ -1,8 +1,9 @@
 /*Scanner.java*/
 package compiler.scanner;
+import java.io.*;
 import compiler.lib.ErrorHandler;
 public class Scanner{
-	public Scanner(FileOutputStream out){
-		out.write("stage: Scanning");
+	public Scanner(PrintWriter out){
+		out.println("stage: Scanning");
 	}
 }

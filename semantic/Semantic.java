@@ -4,8 +4,8 @@ import java.io.*;
 import compiler.lib.ErrorHandler;
 import compiler.ast.Ast;
 public class Semantic{
-	public Semantic(PrintWriter out){
+	public Semantic(Writer out)throws Exception{
 		Ast a = new Ast(out);
-		out.println("stage: Ast");	
+		out.write("stage: Ast");	
 	}
 }

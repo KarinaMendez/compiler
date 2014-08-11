@@ -5,8 +5,8 @@ import java.io.*;
 import compiler.irt.Irt;
 import compiler.lib.ErrorHandler;
 public class Codegen{
-	public Codegen(PrintWriter out){
+	public Codegen(Writer out)throws Exception{
 		Irt i = new Irt(out);
-		out.println("stage: generating code");
+		out.write("stage: generating code");
 	}
 }

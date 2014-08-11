@@ -3,7 +3,7 @@ package compiler.scanner;
 import java.io.*;
 import compiler.lib.ErrorHandler;
 public class Scanner{
-	public Scanner(PrintWriter out){
-		out.println("stage: Scanning");
+	public Scanner(Writer out)throws Exception{
+		out.write("stage: Scanning");
 	}
 }

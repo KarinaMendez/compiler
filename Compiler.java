@@ -23,13 +23,13 @@ public class Compiler{
 					System.exit(0);
 				}
 				if(args[0].contains(".")){
-					System.out.println("hacer todo");
+					//System.out.println("hacer todo");
 					try{
 						InputStream in = new FileInputStream(filename);
 					} catch (FileNotFoundException p) {
 			    		ErrorHandler error = new ErrorHandler("not existing file");
 					}
-					PrintWriter out = new PrintWriter("2"+filename);
+					Writer out = new BufferedWriter(new FileWriter("2"+filename));
 					Codegen c = new Codegen(out);
 
 				}else{
@@ -132,16 +132,40 @@ public class Compiler{
 						System.out.println("se procedera hasta: " + options.get(j));
 						switch(options.get(j)){
 									case "scan":
-										
+										try{
+											InputStream in = new FileInputStream(filename);
+										} catch (FileNotFoundException p) {
+								    		ErrorHandler error = new ErrorHandler("not existing file");
+										}
+										Writer out = new BufferedWriter(new FileWriter("2"+filename));
+										Scanner c = new Scanner(out);
 										break;
 									case "parse":
-										
+										try{
+											InputStream in = new FileInputStream(filename);
+										} catch (FileNotFoundException p) {
+								    		ErrorHandler error = new ErrorHandler("not existing file");
+										}
+										Writer out = new BufferedWriter(new FileWriter("2"+filename));
+										CC4Parser c = new CC4Parser(out);
 										break;
 									case "ast":
-										
+										try{
+											InputStream in = new FileInputStream(filename);
+										} catch (FileNotFoundException p) {
+								    		ErrorHandler error = new ErrorHandler("not existing file");
+										}
+										Writer out = new BufferedWriter(new FileWriter("2"+filename));
+										Ast c = new Ast(out);
 										break; 
 									case "semantic":
-										
+										try{
+											InputStream in = new FileInputStream(filename);
+										} catch (FileNotFoundException p) {
+								    		ErrorHandler error = new ErrorHandler("not existing file");
+										}
+										Writer out = new BufferedWriter(new FileWriter("2"+filename));
+										Semantic c = new Semantic(out);
 										break;
 									case "irt":
 										

@@ -4,8 +4,8 @@ import java.io.*;
 import compiler.lib.ErrorHandler;
 import compiler.semantic.Semantic;
 public class Irt{
-	public Irt(PrintWriter out){
+	public Irt(Writer out)throws Exception{
 		Semantic s = new Semantic(out);
-		out.println("stage: semantic");
+		out.write("stage: semantic");
 	}
 }

@@ -4,8 +4,11 @@ import java.io.*;
 import compiler.lib.ErrorHandler;
 import compiler.ast.Ast;
 public class Semantic{
-	public Semantic(Writer out)throws Exception{
-		Ast a = new Ast(out);
-		out.write("stage: Ast");	
+	Ast a;
+	public Semantic()throws Exception{
+		this.a = new Ast();
+	}
+	public String stage(){
+		return a.stage() +"stage: Ast \n";
 	}
 }

@@ -29,8 +29,10 @@ public class Compiler{
 					} catch (FileNotFoundException p) {
 			    		ErrorHandler error = new ErrorHandler("not existing file");
 					}
-					Writer out = new BufferedWriter(new FileWriter("2"+filename));
-					Codegen c = new Codegen(out);
+					PrintWriter out = new PrintWriter(new FileWriter("2"+filename));
+					Codegen c = new Codegen();
+					out.write(c.stage());
+					out.close();
 
 				}else{
 					ErrorHandler e = new ErrorHandler("not existing file");
@@ -57,11 +59,7 @@ public class Compiler{
 							if(args[i+1].charAt(0)=='-' || args[i+1].contains(".")){
 								ErrorHandler e = new ErrorHandler("missing -target complement");
 							}else{
-								options.add(args[i+1]);
-								i++;
-							}
-						}else{
-							switch(args[i+1]){
+								switch(args[i+1]){
 									case "scan":
 										options.add(args[i+1]);
 										i++;
@@ -87,9 +85,13 @@ public class Compiler{
 										i++;
 										break;
 									default:
-									ErrorHandler e = new ErrorHandler("missing -target complement");
-									break;
+										ErrorHandler e = new ErrorHandler("missing -target complement");
+										break;
 								}
+								i++;
+							}
+						}else{
+							i++;
 						}
 						break;
 					case "-opt":
@@ -137,8 +139,10 @@ public class Compiler{
 										} catch (FileNotFoundException p) {
 								    		ErrorHandler error = new ErrorHandler("not existing file");
 										}
-										Writer out = new BufferedWriter(new FileWriter("2"+filename));
-										Scanner c = new Scanner(out);
+										Writer outss = new BufferedWriter(new FileWriter("2"+filename));
+										Scanner s = new Scanner();
+										outss.write(s.stage());
+										outss.close();
 										break;
 									case "parse":
 										try{
@@ -146,8 +150,10 @@ public class Compiler{
 										} catch (FileNotFoundException p) {
 								    		ErrorHandler error = new ErrorHandler("not existing file");
 										}
-										Writer out = new BufferedWriter(new FileWriter("2"+filename));
-										CC4Parser c = new CC4Parser(out);
+										Writer outsp = new BufferedWriter(new FileWriter("2"+filename));
+										CC4Parser sp = new CC4Parser();
+										outsp.write(sp.stage());
+										outsp.close();
 										break;
 									case "ast":
 										try{
@@ -155,8 +161,10 @@ public class Compiler{
 										} catch (FileNotFoundException p) {
 								    		ErrorHandler error = new ErrorHandler("not existing file");
 										}
-										Writer out = new BufferedWriter(new FileWriter("2"+filename));
-										Ast c = new Ast(out);
+										Writer outsa = new BufferedWriter(new FileWriter("2"+filename));
+										Ast a = new Ast();
+										outsa.write(a.stage());
+										outsa.close();
 										break; 
 									case "semantic":
 										try{
@@ -164,14 +172,32 @@ public class Compiler{
 										} catch (FileNotFoundException p) {
 								    		ErrorHandler error = new ErrorHandler("not existing file");
 										}
-										Writer out = new BufferedWriter(new FileWriter("2"+filename));
-										Semantic c = new Semantic(out);
+										Writer outse = new BufferedWriter(new FileWriter("2"+filename));
+										Semantic ss = new Semantic();
+										outse.write(ss.stage());
+										outse.close();
 										break;
 									case "irt":
-										
+										try{
+											InputStream in = new FileInputStream(filename);
+										} catch (FileNotFoundException p) {
+								    		ErrorHandler error = new ErrorHandler("not existing file");
+										}
+										Writer outsi = new BufferedWriter(new FileWriter("2"+filename));
+										Irt i = new Irt();
+										outsi.write(i.stage());
+										outsi.close();
 										break;
 									case "codegen":
-										
+										try{
+											InputStream in = new FileInputStream(filename);
+										} catch (FileNotFoundException p) {
+								    		ErrorHandler error = new ErrorHandler("not existing file");
+										}
+										Writer outsc = new BufferedWriter(new FileWriter("2"+filename));
+										Codegen cc = new Codegen();
+										outsc.write(cc.stage());
+										outsc.close();
 										break;
 									default:
 									ErrorHandler e = new ErrorHandler("missing -target complement");

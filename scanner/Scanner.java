@@ -1,11 +1,9 @@
 /*Scanner.java*/
 package compiler.scanner;
 import java.io.*;
-import compiler.lib.ErrorHandler;
+import compiler.lib.Printer;
 public class Scanner{
-	public Scanner()throws Exception{
-	}
-	public String stage(){
-		return "stage: Scanning \n";
+	public Scanner(Printer out)throws Exception{
+		out.println("stage: Scanning \n");
 	}
 }

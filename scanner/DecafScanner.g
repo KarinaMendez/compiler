@@ -1,4 +1,4 @@
-lexer grammar decaf;
+lexer grammar DecafScanner;
 
 @lexer::header{
 	package compiler.scanner;
@@ -6,7 +6,7 @@ lexer grammar decaf;
 
 
 
-WHITESPACE 	: 	( '\t' | ' ' | '\r' | '\n')+ { skip(); } ;
+WHITESPACE 	: 	( '\t' | ' ' | '\r' | '\n')+ -> skip ;
 STRING: '"'~('"')*'"';
 
 //OPERATIONS 

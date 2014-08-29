@@ -3,13 +3,13 @@ package compiler.codegen;
 
 import java.io.*;
 import compiler.irt.Irt;
-import compiler.lib.ErrorHandler;
+import compiler.lib.Printer;
 public class Codegen{
 	Irt i ;
-	public Codegen()throws Exception{
-		this.i = new Irt();
-	}
-	public String stage(){
-		return i.stage() +"stage: generating code";
+	public Codegen(String name)throws Exception{
+		Printer out = new Printer(name, "flag");
+		this.i = new Irt(out);
+		out.println("stage: generating code");
+		out.close();
 	}
 }

@@ -1,6 +1,11 @@
 stage: Scanning 
+
 stage: parsing 
+
 stage: CC4Parser 
+
 stage: Ast 
+
 stage: semantic 
+
 stage: generating code
